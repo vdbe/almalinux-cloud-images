@@ -96,8 +96,8 @@
     state: absent
   when: ansible_facts['distribution_major_version'] == '9'
 
-- name: Fill free space with zeroes
-  shell: dd if=/dev/zero of=/zeroed_file bs=1M oflag=direct || rm -f /zeroed_file
+#- name: Fill free space with zeroes
+#  shell: dd if=/dev/zero of=/zeroed_file bs=1M oflag=direct || rm -f /zeroed_file
 
 - name: Detect swap partition
   command: grep -oP '^/dev/[\w-]+' /proc/swaps

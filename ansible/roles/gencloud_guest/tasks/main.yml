@@ -14,18 +14,18 @@
       - linux-firmware
     state: absent
 
-- name: Install additional software
-  dnf:
-    name:
-      - cockpit-system
-      - cockpit-ws
-      - dnf-utils
-      - gdisk
-      - nfs-utils
-      - rsync
-      - tar
-      - tuned
-      - tcpdump
+#- name: Install additional software
+#  dnf:
+#    name:
+#      - cockpit-system
+#      - cockpit-ws
+#      - dnf-utils
+#      - gdisk
+#      - nfs-utils
+#      - rsync
+#      - tar
+#      - tuned
+#      - tcpdump
 
 - name: Find persistent-net.rules
   find:
@@ -109,11 +109,11 @@
       command: dracut -f --regenerate-all
   when: ansible_facts['architecture'] == 'x86_64'
 
-- name: Add almalinux user to /etc/sudoers
-  lineinfile:
-    path: /etc/sudoers
-    line: "almalinux\tALL=(ALL)\tNOPASSWD: ALL"
-    state: present
+#- name: Add almalinux user to /etc/sudoers
+#  lineinfile:
+#    path: /etc/sudoers
+#    line: "almalinux\tALL=(ALL)\tNOPASSWD: ALL"
+#    state: present
 
 # TODO: Delete it after this patch backported or upstream cloud-init rebased on 22.2: https://github.com/canonical/cloud-init/pull/1355
 - name: Workaround for cloud-init locale bug
